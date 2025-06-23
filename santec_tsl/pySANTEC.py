@@ -57,6 +57,36 @@ class SantecTSL:
     def read_sweep_cycles(self) -> int:
         return int(self._query(':WAV:SWE:CYCL?'))
 
+    def read_output_status(self) -> bool:
+        '''Is laser output is on?
+
+        Returns:
+            True -> its on
+            False -> its off
+        '''
+        return ( int(self._query(':POW:STAT?')) == 1 )
+
+    def read_power_units(self) -> str:
+        '''Get power units'''
+        unit = int(self._query(':POW:UNIT?'))
+        if unit == 0:
+            return 'dBm'
+        return 'mW'
+
+    def read_power(self) -> float:
+        '''Get units with `read_power_units`'''
+        return self._query(':POW?')
+
+    def read_power_actual(self) -> float:
+        '''Reads power from builtin power meter
+
+        Get units with `read_power_units`
+        '''
+        return self._query(':POW:ACT?')
+
+    def read_output_status(self) -> bool:
+        return ( int(self._query(':POW:STAT?')) == 1 )
+
     def start_sweep(self) -> None:
         self.tn.write(b':WAV:SWE:STAT 1\r\n')
 
