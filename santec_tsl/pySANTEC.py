@@ -7,6 +7,13 @@ class SantecTSL:
         logging.info('Connection opened')
         #self.tn.read_until(b"\n")
         
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.tn.close()
+        logging.info('Connection closed')
+
     def __del__(self):
         self.tn.close()
         logging.info('Connection closed')
