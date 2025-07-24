@@ -34,7 +34,15 @@ class SantecTSL:
         return float(self._query(':WAV:SWE:STOP?'))
 
     def read_sweep_status(self) -> float:
-        return float(self._query(':WAV:SWE?'))
+        '''Reads sweep status
+
+        Returns:
+            0: Stopped
+            1: Running
+            3: Standing by trigger
+            4: Preparation for sweep start
+        '''
+        return int(self._query(':WAV:SWE?'))
 
     def read_sweep_speed(self) -> float:
         return float(self._query(':WAV:SWE:SPE?'))
@@ -75,14 +83,14 @@ class SantecTSL:
 
     def read_power(self) -> float:
         '''Get units with `read_power_units`'''
-        return self._query(':POW?')
+        return float(self._query(':POW?'))
 
     def read_power_actual(self) -> float:
         '''Reads power from builtin power meter
 
         Get units with `read_power_units`
         '''
-        return self._query(':POW:ACT?')
+        return float(self._query(':POW:ACT?'))
 
     def read_output_status(self) -> bool:
         return ( int(self._query(':POW:STAT?')) == 1 )
@@ -112,7 +120,7 @@ class SantecTSL:
         if not isinstance(wavelength, (int, float)):
             self.tn.close()
             raise ValueError('Wavelength requires an int or float')
-        _str = f':WAV {wavelength:.4f}nm\r\n'
+        _str = f':WAV {wavelength:.4f}\r\n'
         self.tn.write(_str.encode())
 
     def read_wavelength(self) -> None:
