@@ -30,8 +30,28 @@ class SantecTSL:
     def read_start_wavelength(self) -> float:
         return float(self._query(':WAV:SWE:STAR?'))
 
+    def set_start_wavelength(self, wavelength: float) -> None:
+        '''Set sweep start wavelength in nm
+        
+        wavelength: target wavelength in nm (0.1 pm precision)
+
+        It will fail silently if wavelength is outside of range
+        '''
+        _str = f':WAV:SWE:STAR {wavelength:4.4f}\r\n'
+        self.tn.write(_str.encode())
+
     def read_stop_wavelength(self) -> float:
         return float(self._query(':WAV:SWE:STOP?'))
+
+    def set_stop_wavelength(self, wavelength: float) -> None:
+        '''Set sweep stop wavelength in nm
+
+        wavelength: target wavelength in nm (0.1 pm precision)
+
+        It will fail silently if wavelength is outside of range
+        '''
+        _str = f':WAV:SWE:STOP {wavelength:4.4f}\r\n'
+        self.tn.write(_str.encode())
 
     def read_sweep_status(self) -> float:
         '''Reads sweep status
@@ -46,6 +66,15 @@ class SantecTSL:
 
     def read_sweep_speed(self) -> float:
         return float(self._query(':WAV:SWE:SPE?'))
+
+    def set_sweep_speed(self, speed: float) -> None:
+        '''Set sweep speed in nm/s
+
+        Valid speeds:
+            1,2,5,10,20,50,100,200 (nm/s)
+        '''
+        _str = f':WAV:SWE:SPE {speed:.0f}\r\n'
+        self.tn.write(_str.encode())
 
     def read_sweep_dwell(self) -> float:
         '''Reads time between steps if stepped sweep is being used'''
