@@ -1,1 +1,1 @@
-from .santec_tsl import SantecTSL
+from .santec_tsl import *

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Santec-TSL Python LAN Driver documentation &#8212; Santec-TSL Python LAN Driver  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="santec-tsl-python-lan-driver-documentation">
+<h1>Santec-TSL Python LAN Driver documentation<a class="headerlink" href="#santec-tsl-python-lan-driver-documentation" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-santec_tsl.santec_tsl">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-santec_tsl.santec_tsl" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SantecTSL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_output_state">
+<span class="sig-name descname"><span class="pre">read_output_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_output_state" title="Link to this definition">¶</a></dt>
+<dd><p>Is laser output is on?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if on, False if off</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_power">
+<span class="sig-name descname"><span class="pre">read_power</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_power" title="Link to this definition">¶</a></dt>
+<dd><p>Get units with <cite>read_power_units</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_power_actual">
+<span class="sig-name descname"><span class="pre">read_power_actual</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_power_actual" title="Link to this definition">¶</a></dt>
+<dd><p>Reads power from builtin power meter</p>
+<p>Get units with <cite>read_power_units</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_power_units">
+<span class="sig-name descname"><span class="pre">read_power_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_power_units" title="Link to this definition">¶</a></dt>
+<dd><p>Get power units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>dBm</cite> or <cite>mW</cite></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_start_wavelength">
+<span class="sig-name descname"><span class="pre">read_start_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_start_wavelength" title="Link to this definition">¶</a></dt>
+<dd><p>Set sweep start wavelength in nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_stop_wavelength">
+<span class="sig-name descname"><span class="pre">read_stop_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_stop_wavelength" title="Link to this definition">¶</a></dt>
+<dd><p>Set sweep stop wavelength in nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_cycles">
+<span class="sig-name descname"><span class="pre">read_sweep_cycles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_cycles" title="Link to this definition">¶</a></dt>
+<dd><p>Read number of times laser sweeps</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_delay">
+<span class="sig-name descname"><span class="pre">read_sweep_delay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_delay" title="Link to this definition">¶</a></dt>
+<dd><p>Read delay between sweeps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>delay in seconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_dwell">
+<span class="sig-name descname"><span class="pre">read_sweep_dwell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_dwell" title="Link to this definition">¶</a></dt>
+<dd><p>Reads time between steps if stepped sweep is being used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_mode">
+<span class="sig-name descname"><span class="pre">read_sweep_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_mode" title="Link to this definition">¶</a></dt>
+<dd><p>Reads sweep mode</p>
+<dl class="simple">
+<dt>The laser response will be one of these:</dt><dd><ul class="simple">
+<li><p>0: Step sweep mode and One way</p></li>
+<li><p>1: Continuous sweep mode and One way</p></li>
+<li><p>2: Step sweep mode and Two way</p></li>
+<li><p>3: Continuous sweep mode and Two way</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See list above</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_speed">
+<span class="sig-name descname"><span class="pre">read_sweep_speed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_speed" title="Link to this definition">¶</a></dt>
+<dd><p>Read sweep speed in nm/s</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_sweep_status">
+<span class="sig-name descname"><span class="pre">read_sweep_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_sweep_status" title="Link to this definition">¶</a></dt>
+<dd><p>Reads sweep status</p>
+<dl class="simple">
+<dt>The laser response will be one of these:</dt><dd><ul class="simple">
+<li><p>0: Stopped</p></li>
+<li><p>1: Running</p></li>
+<li><p>3: Standing by trigger</p></li>
+<li><p>4: Preparation for sweep start</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See list above</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.read_wavelength">
+<span class="sig-name descname"><span class="pre">read_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.read_wavelength" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_output_state">
+<span class="sig-name descname"><span class="pre">set_output_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_output_state" title="Link to this definition">¶</a></dt>
+<dd><p>Turn the laser output on or off</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>bool</em>) – True -&gt; turn it on, False -&gt; turn it off</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_start_wavelength">
+<span class="sig-name descname"><span class="pre">set_start_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_start_wavelength" title="Link to this definition">¶</a></dt>
+<dd><p>Set sweep start wavelength in nm</p>
+<p>wavelength: target wavelength in nm (0.1 pm precision)</p>
+<p>It will fail silently if wavelength is outside of range</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_stop_wavelength">
+<span class="sig-name descname"><span class="pre">set_stop_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_stop_wavelength" title="Link to this definition">¶</a></dt>
+<dd><p>Set sweep stop wavelength in nm</p>
+<p>wavelength: target wavelength in nm (0.1 pm precision)</p>
+<p>It will fail silently if wavelength is outside of range</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_sweep_cycles">
+<span class="sig-name descname"><span class="pre">set_sweep_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_sweep_cycles" title="Link to this definition">¶</a></dt>
+<dd><p>Set number of times laser sweeps</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_sweep_delay">
+<span class="sig-name descname"><span class="pre">set_sweep_delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_sweep_delay" title="Link to this definition">¶</a></dt>
+<dd><p>Sets time between sweeps if continuous sweep is being used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_sweep_speed">
+<span class="sig-name descname"><span class="pre">set_sweep_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_sweep_speed" title="Link to this definition">¶</a></dt>
+<dd><p>Set sweep speed in nm/s</p>
+<dl class="simple">
+<dt>Valid speeds:</dt><dd><p>1,2,5,10,20,50,100,200 (nm/s)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.set_wavelength">
+<span class="sig-name descname"><span class="pre">set_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.set_wavelength" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.start_sweep">
+<span class="sig-name descname"><span class="pre">start_sweep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.start_sweep" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="santec_tsl.santec_tsl.SantecTSL.stop_sweep">
+<span class="sig-name descname"><span class="pre">stop_sweep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#santec_tsl.santec_tsl.SantecTSL.stop_sweep" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Santec-TSL Python LAN Driver</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jamie Eckstein.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

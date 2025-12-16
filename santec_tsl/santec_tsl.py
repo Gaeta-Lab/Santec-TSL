@@ -105,14 +105,17 @@ class SantecTSL:
         '''
         return float(self._query(':WAV:SWE:DEL?'))
 
-    def read_sweep_status(self) -> float:
+    def read_sweep_status(self) -> int:
         '''Reads sweep status
 
+        The laser response will be one of these:
+            + 0: Stopped
+            + 1: Running
+            + 3: Standing by trigger
+            + 4: Preparation for sweep start
+
         Returns:
-            0: Stopped
-            1: Running
-            3: Standing by trigger
-            4: Preparation for sweep start
+            (int): See list above
         '''
         return int(self._query(':WAV:SWE?'))
 
@@ -123,11 +126,14 @@ class SantecTSL:
     def read_sweep_mode(self) -> int:
         '''Reads sweep mode
         
+        The laser response will be one of these:
+            + 0: Step sweep mode and One way  
+            + 1: Continuous sweep mode and One way
+            + 2: Step sweep mode and Two way
+            + 3: Continuous sweep mode and Two way
+
         Returns:
-            0: Step sweep mode and One way
-            1: Continuous sweep mode and One way
-            2: Step sweep mode and Two way
-            3: Continuous sweep mode and Two way
+            (int): See list above
         '''
         return int(self._query(':WAV:SWE:MOD?'))
 
@@ -143,8 +149,7 @@ class SantecTSL:
         '''Is laser output is on?
 
         Returns:
-            True -> its on
-            False -> its off
+            (bool): True if on, False if off
         '''
         return ( int(self._query(':POW:STAT?')) == 1 )
 
@@ -152,7 +157,7 @@ class SantecTSL:
         '''Get power units
         
         Returns:
-            str: `dBm` or `mW`
+            (str): `dBm` or `mW`
         '''
         unit = int(self._query(':POW:UNIT?'))
         if unit == 0:
