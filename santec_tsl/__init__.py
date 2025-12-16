@@ -1,1 +1,1 @@
-from .pySANTEC import *
+from .santec_tsl import SantecTSL
