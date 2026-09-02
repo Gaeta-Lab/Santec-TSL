@@ -158,65 +158,35 @@ while True:
                 window['error'].update(f'ERROR: Could not connect to Santec at {ip}:{port}')
             else:
                 window['error'].update('')
-                if event == 'Toggle Power':
-                    state = santec.read_output_state()
-                    santec.set_output_state(not state)
-                    update(santec)
-                elif event == 'Update':
-                    update(santec)
-                elif event == 'Start Sweep':
-                    start_sweep(santec)
-                elif event == 'Go to':
-                    wavelength = float(values[0])
-                    go_to(santec, wavelength)
-                elif event == 'Set Start':
-                    wavelength = float(values[1])
-                    santec.set_start_wavelength(wavelength)
-                    update(santec)
-                elif event == 'Set Stop':
-                    wavelength = float(values[2])
-                    santec.set_stop_wavelength(wavelength)
-                    update(santec)
-                elif event == 'Export':
-                    update(santec)
-                    fname = values[3]
-                    with open(fname, 'w') as f:
-                        json.dump(laser_state, f, indent=4)
+                with santec:
+                    if event == 'Toggle Power':
+                        state = santec.read_output_state()
+                        santec.set_output_state(not state)
+                        update(santec)
+                    elif event == 'Update':
+                        update(santec)
+                    elif event == 'Start Sweep':
+                        start_sweep(santec)
+                    elif event == 'Go to':
+                        wavelength = float(values[0])
+                        go_to(santec, wavelength)
+                    elif event == 'Set Start':
+                        wavelength = float(values[1])
+                        santec.set_start_wavelength(wavelength)
+                        update(santec)
+                    elif event == 'Set Stop':
+                        wavelength = float(values[2])
+                        santec.set_stop_wavelength(wavelength)
+                        update(santec)
+                    elif event == 'Export':
+                        update(santec)
+                        fname = values[3]
+                        with open(fname, 'w') as f:
+                            json.dump(laser_state, f, indent=4)
         else:
             if event == 'Set IP':
                 ip = values[4]
-#         if event == 'Toggle Power':
-#             with SantecTSL(ip, '5000') as santec:
-#                 state = santec.read_output_state()
-#                 santec.set_output_state(not state)
-#                 update(santec)
-#         elif event == 'Update':
-#             with SantecTSL(ip, '5000') as santec:
-#                 update(santec)
-#         elif event == 'Start Sweep':
-#             with SantecTSL(ip, '5000') as santec:
-#                 start_sweep(santec)
-#         elif event == 'Go to':
-#             wavelength = float(values[0])
-#             with SantecTSL(ip, '5000') as santec:
-#                 go_to(santec, wavelength)
-#         elif event == 'Set Start':
-#             wavelength = float(values[1])
-#             with SantecTSL(ip, '5000') as santec:
-#                 santec.set_start_wavelength(wavelength)
-#                 update(santec)
-#         elif event == 'Set Stop':
-#             wavelength = float(values[2])
-#             with SantecTSL(ip, '5000') as santec:
-#                 santec.set_stop_wavelength(wavelength)
-#                 update(santec)
-#         elif event == 'Export':
-#             with SantecTSL(ip, '5000') as santec:
-#                 update(santec)
-#             fname = values[3]
-#             with open(fname, 'w') as f:
-#                 json.dump(laser_state, f, indent=4)
-#         elif event == 'Set IP':
-#             ip = values[4]
+            elif event == 'Set Port':
+                port = values[5]
 
 window.close()
