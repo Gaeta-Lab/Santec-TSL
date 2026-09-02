@@ -2,7 +2,8 @@ import socket
 import logging
 
 class SantecTSL:
-    def __init__(self, host, port, timeout=5) -> None:
+    def __init__(self, host, port, *, timeout=5) -> None:
+
         self.conn = socket.create_connection((host, port), timeout=timeout)
         logging.info('Connection opened')
         
@@ -13,7 +14,7 @@ class SantecTSL:
         self.conn.close()
         logging.info('Connection closed')
 
-    def __del__(self):
+    def close(self):
         self.conn.close()
         logging.info('Connection closed')
 
